@@ -1,0 +1,81 @@
+@use '../../styles/util' as u;
+
+$main-color: #fff;
+
+.form-input {
+  position: relative;
+  height: u.rem(45);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: u.rem(35);
+  border-bottom: u.rem(2) solid rgba(255, 255, 255, 0.3);
+
+  &.margin {
+    margin-bottom: u.rem(50);
+  }
+
+  &__input {
+    font-family: Poppins-Regular, sans-serif;
+    position: absolute;
+    background: transparent;
+    color: $main-color;
+    line-height: 1.2;
+    font-size: u.rem(18);
+    padding: 0 u.rem(5) 0 u.rem(38);
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    top: u.rem(1);
+    transition: all 0.1s ease;
+
+    &:focus {
+      outline: none;
+      padding-left: u.rem(5);
+      border-bottom: u.rem(2) solid #fff;
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    &:focus ~ .form-input__label {
+      top: u.rem(-14);
+
+      .email {
+        max-width: u.rem(17);
+        max-height: u.rem(14);
+      }
+
+      .password {
+        max-width: u.rem(13);
+        max-height: u.rem(16.5);
+      }
+
+      .name {
+        max-width: u.rem(16);
+        max-height: u.rem(16);
+      }
+    }
+
+    &::placeholder {
+      font-size: u.rem(14.5);
+      letter-spacing: 0.05em;
+      color: $main-color;
+      opacity: 0.95;
+
+
+    }
+  }
+
+  &__label {
+    color: black;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: u.rem(4);
+    top: u.rem(13.5);
+    transition: 400ms ease all;
+  }
+}

@@ -1,0 +1,84 @@
+@use "breakpoints" as b;
+
+@mixin bgColor($firstbBgColor, $secondBgColor) {
+  background: -ms-radial-gradient(
+    circle at 3% 25%,
+    $firstbBgColor 0%,
+    $secondBgColor 100%
+  );
+  background: -o-radial-gradient(
+    circle at 3% 25%,
+    $firstbBgColor 0%,
+    $secondBgColor 100%
+  );
+  background: -webkit-radial-gradient(
+    circle at 3% 25%,
+    $firstbBgColor 0%,
+    $secondBgColor 100%
+  );
+  background: -moz-radial-gradient(
+    circle at 3% 25%,
+    $firstbBgColor 0%,
+    $secondBgColor 100%
+  );
+  background: radial-gradient(
+    circle at 3% 25%,
+    $firstbBgColor 0%,
+    $secondBgColor 100%
+  );
+}
+
+@mixin gradientText($gradientTextColor) {
+  background: $gradientTextColor;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: start;
+}
+
+//  radial-gradient(
+//     circle at 3% 25%,
+//     #810d34 0%,
+//     #55031c 100%
+//   );
+
+@mixin keyframes-animation($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin paragraph($color, $fontFamily, $fontSize, $fontWeight, $lineHeight) {
+  color: $color !important;
+  font-family: $fontFamily;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+@mixin sectionPadding() {
+  padding: 4rem 2rem;
+
+  @include b.breakpoint-up("small") {
+    padding: 4rem;
+  }
+
+  @include b.breakpoint-up("large") {
+    padding: 4rem 6rem;
+  }
+}
+
+@mixin sectionMargin() {
+  margin: 4rem 2rem;
+
+  @include b.breakpoint-up("small") {
+    margin: 4rem;
+  }
+
+  @include b.breakpoint-up("large") {
+    margin: 4rem 6rem;
+  }
+}

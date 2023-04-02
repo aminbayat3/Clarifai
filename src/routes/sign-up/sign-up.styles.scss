@@ -1,0 +1,42 @@
+@use '../../styles/util' as u;
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: u.rem(30);
+
+  @include u.breakpoint-up('medium') {
+    padding: u.rem(20);
+  }
+  
+
+  &__form {
+    font-family: Poppins-Medium, sans-serif;
+    width: clamp(u.rem(280), u.rem(400) + 15vw, u.rem(500));
+    padding: u.rem(37) u.rem(55) u.rem(37) u.rem(55);
+    border-radius: u.rem(10);
+    background: linear-gradient(to right bottom, #a00e3a, #7c071e, #3d010d);
+    box-shadow: 0 0 u.rem(10) u.rem(2) #c7123f, 0 0 u.rem(6) #940826, 0 0 u.rem(4) #55031c;
+    filter: drop-shadow(0 u.rem(4) u.rem(4) rgba(0, 0, 0, 0.25));
+
+    &__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__login {
+        font-weight: bold;
+        font-size: u.rem(13.7);
+        letter-spacing: 0.09em;
+        color: rgba(255, 255, 255, 0.7) !important;
+        margin-top: u.rem(20);
+
+        &:hover {
+          color: #fff !important;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

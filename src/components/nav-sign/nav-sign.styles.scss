@@ -1,0 +1,8 @@
+@use "../../styles/util" as u;
+
+p {
+  @include u.paragraph(u.$whiteColor, u.$font, u.rem(18), 500, u.rem(25));
+  text-transform: capitalize;
+  margin: 0 1rem;
+  cursor: pointer;
+}

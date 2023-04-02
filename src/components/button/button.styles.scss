@@ -1,0 +1,77 @@
+@use "../../styles/util" as u;
+
+$borderColor: #db8700;
+$btn-transition-time: 64ms;
+
+.button-container {
+  color: u.$whiteColor;
+  font-family: u.$font;
+  font-weight: 500;
+  background-color: u.$buttonColor;
+  border: u.rem(2) solid $borderColor;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4),
+    0 -0.3rem 0.6rem rgba(0, 0, 0, 0.2) inset;
+  transition: box-shadow $btn-transition-time ease-out;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+
+  &:after {
+		content: "";
+		background-color: #ffffff;
+		width: 75%;
+		height: 12.5%;
+		position: absolute;
+		top: 0.15rem;
+		left: 12.5%;
+		border-radius: 50%;
+		filter: blur(0.15rem);
+		transition: opacity $btn-transition-time ease-out;
+	}
+
+  &:active {
+		box-shadow:
+			0 0 0 rgba(0, 0, 0, 0.4),
+			0 0.4rem 1rem rgba(0, 0, 0, 0.3) inset;
+		&:after {
+			opacity: 0;
+		}
+	}
+
+  &.signup {
+    font-size: u.rem(17);
+    padding: 0.6rem 1.4rem;
+    line-height: u.rem(25);
+    border-radius: u.rem(5);
+  }
+
+  &.getStarted {
+    font-size: clamp(u.rem(8), u.rem(1.5) + 1.8vw, u.rem(11));
+    flex: 0.6;
+    max-height: u.rem(45);
+    line-height: u.rem(28);
+    padding: 0 1rem;
+    border-top-right-radius: u.rem(6);
+    border-bottom-right-radius: u.rem(6);
+
+    @include u.breakpoint-up("small") {
+      font-size: u.rem(13);
+      flex: 0.6;
+      min-height: 50px;
+    }
+
+    @include u.breakpoint-up("medium") {
+      font-size: clamp(u.rem(10), u.rem(5) + 0.8vw, u.rem(17));
+    }
+  }
+
+  &.register {
+    background-color: rgb(32, 29, 20);
+    border: u.rem(2) solid rgb(210, 74, 74);
+    margin: u.rem(10) 0 0 0;
+    padding: u.rem(18) u.rem(44);
+    font-weight: bolder;
+    font-size: u.rem(14.5);
+  }
+}

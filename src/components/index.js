@@ -1,0 +1,10 @@
+export { default as Brand } from './brand/brand.component';
+export { default as Register } from './register/register.component';
+export { default as Feature } from './feature/feature.component';
+export { default as Blog } from './blog/blog.component';
+export { default as Features } from './features/features.component';
+export { default as Footer } from './footer/footer.component';
+export { default as Navbar } from './navbar/navbar.component';
+export { default as Header } from './header/header.component';
+export { default as ClarifaiTechSolution } from './clarifai-tech-solutions/clarifai-tech-solution.component';
+export { default as AboutClarifai } from './about-clarifai/about-clarifai.component';

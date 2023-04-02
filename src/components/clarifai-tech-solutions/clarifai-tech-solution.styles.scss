@@ -1,0 +1,103 @@
+@use "../../styles/util" as u;
+
+.tech-solution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include u.sectionPadding();
+
+  &__image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    min-width: u.rem(330);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include u.breakpoint-up('medium') {
+      width: calc(u.rem(500) + 10vw);
+    }
+
+    @include u.breakpoint-up('large') {
+      width: auto;
+    }
+
+    @include u.breakpoint-down('medium') {
+      margin: 1rem 0;
+    }
+
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__gradient-text {
+      @include u.gradientText(u.$gradientTextColor);
+      line-height: u.rem(47);
+      margin: u.rem(10) 0;
+
+      @include u.breakpoint-up("small") {
+        margin-top: u.rem(20);
+        line-height: u.rem(60);
+      }
+
+      @include u.breakpoint-up('medium') {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      @include u.breakpoint-up('large') {
+        text-align: left;
+      }
+    }
+
+    p {
+      @include u.paragraph(u.$textColor, u.$font, u.rem(12), 500, u.rem(20));
+      margin: u.rem(10) 0;
+
+      @include u.breakpoint-up("small") {
+        font-size: u.rem(14);
+        line-height: u.rem(24);
+      }
+
+      @include u.breakpoint-up('medium') {
+        text-align: center;
+      }
+
+      @include u.breakpoint-up('large') {
+        text-align: left;
+      }
+
+      &:last-child {
+        color: rgba(255, 255, 153, 0.965);
+        cursor: pointer;
+      }
+    }
+
+    
+  }
+
+  @include u.breakpoint-up('large') {
+    flex-direction: row;
+    padding: u.rem(64) u.rem(64) u.rem(64) u.rem(50);
+  }
+}
+
+// p {
+//     @include u.paragraph(u.$textColor, u.$font, u.rem(12), 500, u.rem(20));
+//     margin-top: 2rem;
+//     color: rgba(255, 255, 153, 0.965);
+
+//     @include u.breakpoint-up("small") {
+//       font-size: u.rem(14);
+//       line-height: u.rem(24);
+//     }
+// }

@@ -1,0 +1,26 @@
+@use '../../styles/util' as u;
+
+.brand {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    @include u.sectionPadding();
+
+    div {
+        flex: 1;
+        max-width: u.rem(150);
+        min-width: u.rem(120);
+        margin: 1rem;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include u.breakpoint-down('xsmall') {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+}

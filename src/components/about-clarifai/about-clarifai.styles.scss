@@ -1,0 +1,57 @@
+@use '../../styles/util' as u;
+
+.about-clarifai {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: linear-gradient(to right bottom, #a00e3a, #7c071e, #3d010d);
+  box-shadow: 0 0 10px 2px #c7123f, 0 0 6px #940826, 0 0 4px #55031c;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  @include u.sectionMargin();
+
+  &__feature {
+    display: flex;
+    margin: 0;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 0 2rem;
+
+    &__gradient-text {
+      @include u.gradientText(u.$gradientTextColor);
+
+      @include u.breakpoint-down('small') {
+        line-height: u.rem(47);
+      }
+    }
+
+    p {
+      min-width: u.rem(95);
+      color: #ffff99f6;
+      font-size: u.rem(13);
+      cursor: pointer;
+      margin-top: u.rem(16);
+
+      @include u.breakpoint-up('large') {
+        font-size: u.rem(15);
+      }
+    }
+
+    @include u.breakpoint-up('medium') {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 4rem 0 2rem;
+    }
+  }
+
+  &__usecases {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+}

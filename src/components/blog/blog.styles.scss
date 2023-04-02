@@ -1,0 +1,52 @@
+@use "../../styles/util" as u;
+
+.blog {
+  display: flex;
+  flex-direction: column;
+
+  @include u.sectionPadding();
+
+  &__heading {
+    width: 100%;
+    margin-bottom: 5rem;
+
+    &__gradient-text {
+        @include u.gradientText(u.$gradientTextColor);
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    &__first-article {
+        flex: 0.75;
+        margin-right: 2rem;
+
+        @include u.breakpoint-down('medium') {
+          height: u.rem(250);
+          width:48%;
+          margin: 2rem 0;
+        }
+
+        @include u.breakpoint-down('small') {
+          width: 100%;
+        }
+    }
+
+    &__rest {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2rem;
+
+        @include u.breakpoint-up('medium') {
+          grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @include u.breakpoint-up('large') {
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,302 @@
+@use "../../styles/util" as u;
+
+.planets {
+  width: u.rem(45);
+  height: u.rem(45);
+  border-radius: 50%;
+  transform: scaleX(5);
+  align-self: center;
+  margin-right: u.rem(35);
+
+  .planet-index {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    &--first {
+      animation: hideFirstPlanet 12s infinite;
+      transform: translateZ(0);
+    }
+
+    &--second {
+      animation: hideSecondPlanet 12s infinite;
+      transform: translateZ(0);
+    }
+
+    &--third {
+      animation: hideThirdPlanet 12s infinite;
+      transform: translateZ(0);
+    }
+
+    .route {
+      width: 100%;
+      height: 100%;
+      animation: rotate 12s infinite linear;
+      transform: translateZ(0);
+      position: absolute;
+
+      .planet-container {
+        width: u.rem(18);
+        height: u.rem(18);
+        animation: correct 12s infinite linear;
+        transform: translateZ(0);
+        position: absolute;
+
+        &--second {
+          left: u.rem(25.5);
+
+          @include u.breakpoint-up("large") {
+            left: u.rem(51);
+          }
+        }
+
+        &--third {
+          left: u.rem(12.75);
+          top: u.rem(30);
+
+          @include u.breakpoint-up("large") {
+            left: u.rem(25.5);
+            top: u.rem(60);
+          }
+        }
+
+        .planet {
+          width: u.rem(18);
+          height: u.rem(18);
+          border-radius: 50%;
+          transform: scaleX(0.2);
+
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+          }
+
+          &--first {
+            background: rgb(247, 253, 86);
+            box-shadow: 0 0 u.rem(3) rgb(247, 253, 86),
+              0 0 u.rem(3) rgb(250, 219, 77);
+
+            @include u.breakpoint-up("large") {
+              box-shadow: 0 0 u.rem(5) rgb(247, 253, 86),
+                0 0 u.rem(5) rgb(250, 219, 77);
+            }
+          }
+
+          &--second {
+            background: rgb(161, 97, 0);
+            box-shadow: 0 0 u.rem(2) rgb(255, 165, 31),
+              0 0 u.rem(2) rgb(211, 127, 0);
+
+            @include u.breakpoint-up("large") {
+              box-shadow: 0 0 u.rem(4) rgb(255, 165, 31),
+                0 0 u.rem(4) rgb(106, 64, 0);
+            }
+          }
+
+          &--third {
+            background: rgb(255, 66, 113);
+            box-shadow: 0 0 u.rem(3) rgb(255, 66, 113),
+              0 0 u.rem(3) rgb(141, 3, 37);
+
+            @include u.breakpoint-up("large") {
+              box-shadow: 0 0 u.rem(6) rgb(255, 66, 113),
+                0 0 u.rem(6) rgb(141, 3, 37);
+            }
+          }
+
+          @include u.breakpoint-up("large") {
+            width: u.rem(36);
+            height: u.rem(36);
+          }
+        }
+
+        @include u.breakpoint-up("large") {
+          width: u.rem(36);
+          height: u.rem(36);
+        }
+      }
+    }
+  }
+
+  .sun {
+    position: absolute;
+    width: u.rem(45);
+    height: u.rem(45);
+    border-radius: 50%;
+    background-color: #ff9c01;
+    box-shadow: 0 0 u.rem(18) rgb(255, 186, 129),
+      0 0 u.rem(29.4) rgb(205, 154, 25);
+    transform: scaleX(0.2);
+
+    @include u.breakpoint-up("large") {
+      width: u.rem(90);
+      height: u.rem(90);
+      box-shadow: 0 0 u.rem(36) rgb(255, 186, 129),
+        0 0 u.rem(58.8) rgb(205, 154, 25);
+    }
+  }
+
+  @include u.breakpoint-up("small") {
+    align-self: start;
+    margin: 0 0 0 u.rem(25);
+  }
+
+  @include u.breakpoint-up("large") {
+    width: u.rem(90);
+    height: u.rem(90);
+    align-self: center;
+    margin-right: u.rem(80);
+    position: absolute;
+    top: u.rem(120);
+  }
+
+  @include u.breakpoint-up('xlarge') {
+    margin-right: u.rem(120);
+  }
+
+  @include u.breakpoint-up('xxlarge') {
+    margin-right: u.rem(250);
+  }
+}
+
+@include u.keyframes-animation(rotate) {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@include u.keyframes-animation(correct) {
+  0% {
+    transform: rotateZ(360deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@include u.keyframes-animation(hideFirstPlanet) {
+  0% {
+    z-index: 999;
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(0.9);
+    z-index: -999;
+  }
+
+  100% {
+    z-index: 999;
+    transform: scale(1);
+  }
+}
+
+@include u.keyframes-animation(hideSecondPlanet) {
+  0% {
+    z-index: -999;
+    transform: scale(0.95);
+  }
+
+  50% {
+    z-index: 999;
+    transform: scale(1.1);
+  }
+
+  100% {
+    z-index: -999;
+    transform: scale(0.95);
+  }
+}
+
+@include u.keyframes-animation(hideThirdPlanet) {
+  0% {
+    z-index: 999;
+    transform: scale(1.1);
+  }
+
+  50% {
+    z-index: -999;
+    transform: scale(0.8);
+  }
+
+  100% {
+    z-index: 999;
+    transform: scale(1.1);
+  }
+}
+
+@include u.keyframes-animation(firstPlanetRenderRotator) {
+  0% {
+    transform: scaleX(-0.2);
+  }
+
+  12% {
+    transform: scaleX(-1);
+  }
+  12.1% {
+    transform: scaleX(1);
+  }
+
+  62% {
+    transform: scaleX(-1);
+  }
+  62.1% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(-0.2);
+  }
+}
+
+@include u.keyframes-animation(secondPlanetRenderRotator) {
+  0% {
+    transform: scaleX(0.5);
+  }
+
+  40% {
+    transform: scaleX(-1);
+  }
+  40.1% {
+    transform: scaleX(1);
+  }
+
+  90% {
+    transform: scaleX(-1);
+  }
+  90.1% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0.5);
+  }
+}
+
+@include u.keyframes-animation(thirdPlanetRenderRotator) {
+  0% {
+    transform: scaleX(1);
+  }
+
+  49% {
+    transform: scaleX(-1);
+  }
+  49.1% {
+    transform: scaleX(1);
+  }
+
+  75% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}

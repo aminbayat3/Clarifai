@@ -1,0 +1,26 @@
+.face-recognition-container {
+  display: flex;
+  justify-content: center;
+
+  .image-container {
+    position: relative;
+    max-width: 500px;
+
+    img {
+      max-width: 100%;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: center;
+      max-height: 450px;
+    }
+
+    .bounding-box {
+      position: absolute;
+      box-shadow: 0 0 0 3px #149df2 inset;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}

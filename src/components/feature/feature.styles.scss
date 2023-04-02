@@ -1,0 +1,69 @@
+@use "../../styles/util" as u;
+
+.feature {
+  display: unset;
+  margin: 1rem;
+  flex-direction: column;
+  flex: 1 1;
+  flex-wrap: wrap;
+  min-width: u.rem(210);
+
+  &.about {
+    @include u.breakpoint-up("medium") {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+
+  &.list {
+    @include u.breakpoint-down('medium') {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    @include u.breakpoint-down('small') {
+      display: unset;
+      justify-content: start;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    flex: 1;
+    max-width: u.rem(180);
+    margin-right: 2rem;
+
+    div {
+      width: u.rem(38);
+      height: u.rem(3);
+      background: u.$gradientBar;
+      box-shadow: 0 u.rem(4) u.rem(4) rgba(0, 0, 0, 0.25);
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__text {
+    flex: 2;
+    max-width: u.rem(390);
+    display: flex;
+
+    &.large {
+      max-width: u.rem(700);
+    }
+
+    p {
+      @include u.paragraph(u.$textColor, u.$font, u.rem(12), 500, u.rem(20));
+
+      @include u.breakpoint-up("small") {
+        font-size: u.rem(14);
+        line-height: u.rem(24);
+      }
+    }
+  }
+
+  @include u.breakpoint-up("small") {
+    margin: 1rem;
+  }
+}

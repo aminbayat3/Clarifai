@@ -1,0 +1,60 @@
+@use "../../styles/util" as u;
+
+.article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    to right bottom,
+    #a00e3a,
+    #7c071e,
+    #3d010d,
+    #0d0d0d
+  );
+  box-shadow: 0 0 10px 2px #c7123f, 0 0 6px #940826, 0 0 4px #55031c;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      @include u.breakpoint-down('small') {
+        max-height: u.rem(315);
+    }
+    }
+
+    @include u.breakpoint-down('small') {
+        max-height: u.rem(315);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    height: 100%;
+
+    p {
+      @include u.paragraph(u.$whiteColor, u.$font, u.rem(11.6), 700, u.rem(35));
+
+      &:last-child {
+        cursor: pointer;
+      }
+    }
+
+    h3 {
+      margin-bottom: 5rem;
+      cursor: pointer;
+
+      @include u.breakpoint-up("large") {
+        font-size: u.rem(24);
+      }
+    }
+  }
+}

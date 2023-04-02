@@ -1,0 +1,29 @@
+@use "../../styles/util" as u;
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(u.rem(90), u.rem(85) + 2vw, u.rem(120));
+  height: clamp(u.rem(90), u.rem(85) + 2vw, u.rem(120));
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+
+  img {
+    max-height: u.rem(34);
+    max-width: u.rem(50);
+
+    @include u.breakpoint-up("small") {
+      max-height: u.rem(40);
+      max-width: u.rem(57);
+    }
+  }
+}
+
+.login-title {
+  color: u.$whiteColor;
+  text-align: center;
+  font-size: clamp(u.rem(18), u.rem(16) + 1vw, u.rem(32));
+  margin: u.rem(15) 0 u.rem(20) 0;
+}

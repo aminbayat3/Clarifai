@@ -1,0 +1,71 @@
+@use "../../styles/util" as u;
+
+.features {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem 2rem 4rem;
+  position: relative;
+
+  @include u.breakpoint-up("small") {
+    padding: 4rem;
+  }
+
+  @include u.breakpoint-up("medium") {
+    padding: 4rem 6rem;
+  }
+
+  @include u.breakpoint-up("large") {
+    flex-direction: row;
+  }
+
+  &__heading {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    margin: 1rem 0 2rem;
+
+    &__gradient-text {
+      @include u.gradientText(u.$gradientTextColor);
+      line-height: u.rem(47);
+      margin-top: u.rem(60);
+
+      @include u.breakpoint-up('small') {
+        margin-top: u.rem(20);
+        line-height: u.rem(60);
+      }
+    }
+
+    p {
+      @include u.paragraph(u.$textColor, u.$font, u.rem(12), 500, u.rem(20));
+      margin-top: 2rem;
+      color: rgba(255, 255, 153, 0.965);
+
+      @include u.breakpoint-up("small") {
+        font-size: u.rem(14);
+        line-height: u.rem(24);
+      }
+    }
+
+    @include u.breakpoint-up('small') {
+      margin: 2rem 0;
+    }
+
+    @include u.breakpoint-up("large") {
+      margin: 0 5rem 0 0;
+    }
+  }
+
+  &__list {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+
+    @include u.breakpoint-up('large') {
+      align-items: center;
+    }
+  }
+}

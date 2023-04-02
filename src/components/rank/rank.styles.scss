@@ -1,0 +1,21 @@
+@use '../../styles/util' as u;
+
+.rank-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: u.rem(29);
+    color: u.$whiteColor;
+
+    h2 {
+        margin-bottom: u.rem(8);
+
+        @include u.breakpoint-up('medium') {
+            margin-bottom: u.rem(15);
+        }
+
+        @include u.breakpoint-down('xsmall') {
+            font-size: u.rem(20);
+        }
+    }
+}

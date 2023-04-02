@@ -1,0 +1,117 @@
+@use "../../styles/util" as u;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+
+  p {
+    @include u.paragraph(u.$whiteColor, u.$font, u.rem(18), 500, u.rem(25));
+    text-transform: capitalize;
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+
+  &__links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__logo {
+      margin-right: 2rem;
+
+      svg {
+        @include u.breakpoint-up("xxlarge") {
+          width: u.rem(125);
+          height: u.rem(30);
+        }
+      }
+    }
+  }
+
+  &__sign {
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include u.breakpoint-up("small") {
+      display: flex;
+    }
+  }
+
+  &__menu {
+    margin-left: 1rem;
+    display: flex;
+    position: relative;
+    z-index: 10;
+
+    @include u.breakpoint-up("large") {
+      display: none;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      text-align: end;
+      background: #923051;
+      padding: 2rem;
+      position: absolute;
+      right: 0;
+      top: u.rem(20);
+      margin-top: 1rem;
+      min-width: u.rem(210);
+      border-radius: u.rem(5);
+      box-shadow: u.rem(0) u.rem(0) u.rem(5) rgba(0, 0, 0, 0.2);
+
+      &.scale-up {
+        -webkit-animation: scale-up 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+          both;
+        animation: scale-up 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+      }
+
+      &__sign {
+        display: block;
+        text-align: end;
+
+        p {
+          margin: 0 0 1rem 0;
+        }
+
+        @include u.breakpoint-up("small") {
+          display: none;
+        }
+      }
+
+      @include u.breakpoint-up("small") {
+        top: u.rem(40);
+      }
+    }
+  }
+
+  @include u.breakpoint-up("small") {
+    padding: 2rem 4rem;
+  }
+
+  @include u.breakpoint-up("large") {
+    padding: 2rem 6rem;
+  }
+}
+
+@include u.keyframes-animation(scale-up) {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}

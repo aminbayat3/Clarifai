@@ -1,0 +1,91 @@
+@use "../../styles/util" as u;
+
+.face-detection-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: u.rem(20) u.rem(40);
+
+  &__option {
+    @include u.paragraph(u.$whiteColor, u.$font, u.rem(19.5), 500, u.rem(25));
+    text-transform: capitalize;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: color 0.2s ease-out;
+    display: none;
+
+    @include u.breakpoint-up("small") {
+      display: block;
+    }
+
+    @include u.breakpoint-up("xxlarge") {
+      @include u.paragraph(u.$whiteColor, u.$font, u.rem(20), 500, u.rem(26));
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &__menu {
+    margin-left: 1rem;
+    display: flex;
+    position: relative;
+    z-index: 10;
+
+    @include u.breakpoint-up("small") {
+      display: none;
+    }
+
+    svg {
+      cursor: pointer;
+    }
+
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      text-align: end;
+      background: #923051;
+      padding: 2rem;
+      position: absolute;
+      right: 0;
+      top: u.rem(20);
+      margin-top: 1rem;
+      min-width: u.rem(210);
+      border-radius: u.rem(5);
+      box-shadow: u.rem(0) u.rem(0) u.rem(5) rgba(0, 0, 0, 0.2);
+
+      &.scale-up {
+        -webkit-animation: scale-up 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+          both;
+        animation: scale-up 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+      }
+
+      &__option {
+        @include u.paragraph(
+          u.$whiteColor,
+          u.$font,
+          u.rem(17),
+          500,
+          u.rem(25)
+        );
+        text-transform: capitalize;
+        margin: 0 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@include u.keyframes-animation(scale-up) {
+  0% {
+    -webkit-transform: scaleX(0.4);
+    transform: scaleX(0.4);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}

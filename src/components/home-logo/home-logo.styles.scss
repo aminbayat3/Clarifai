@@ -1,0 +1,47 @@
+@use "../../styles/util" as u;
+
+.home-logo {
+  width: u.rem(110);
+  height: u.rem(110);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to right bottom,
+    #a00e3a,
+    #7c071e,
+    #3d010d,
+    #0d0d0d
+  );
+  box-shadow: 0 0 10px 2px #c7123f, 0 0 6px #940826, 0 0 4px #55031c;
+  margin-bottom: 50px;
+
+  @include u.breakpoint-up('small') {
+    width: u.rem(130);
+    height: u.rem(130);
+  }
+
+  @include u.breakpoint-up("medium") {
+    width: 150px;
+    height: 150px;
+  }
+
+  @include u.breakpoint-down('small') {
+    margin: u.rem(10) auto u.rem(40);
+  }
+
+  img {
+    width: 90px;
+    height: 80px;
+
+    @include u.breakpoint-up('small') {
+        width: 110px;
+        height: 90px;
+    }
+
+    @include u.breakpoint-up("medium") {
+      width: 130px;
+      height: 120px;
+    }
+  }
+}

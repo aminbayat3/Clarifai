@@ -1,0 +1,52 @@
+@use '../../styles/util' as u;
+
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin: 4rem 2rem;
+    border-radius: 1rem;
+    background: linear-gradient(to right bottom, #a00e3a, #7c071e, #3d010d, #0d0d0d); 
+    box-shadow: 0 0 10px 2px #c7123f, 0 0 6px #940826, 0 0 4px #55031c;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        color: u.$whiteColor;
+
+        p {
+            @include u.paragraph(u.$whiteColor, u.$font, u.rem(12), 500, u.rem(30));
+
+            @include u.breakpoint-up('small') {
+                font-size: u.rem(13)
+            }
+
+            @include u.breakpoint-up('medium') {
+                font-size: u.rem(14);
+            }
+        }
+
+        h4 {
+            @include u.paragraph(u.$whiteColor, u.$font, u.rem(16.5), 800, u.rem(32));
+            margin: u.rem(10) 0;
+
+            @include u.breakpoint-up('small') {
+                font-size: u.rem(17.5);
+                margin: u.rem(10) 2rem u.rem(15) 0;
+            }
+
+            @include u.breakpoint-up('medium') {
+                font-size: clamp(u.rem(17.5), u.rem(11.5) + 0.9vw, u.rem(25));
+                line-height: u.rem(45);
+                margin: u.rem(10) 2rem u.rem(10) 0;
+            }
+        }
+    }
+
+    @include u.breakpoint-up('medium') {
+        flex-direction: row;
+        margin: 4rem;
+    }
+}
